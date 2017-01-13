@@ -3,6 +3,8 @@ Get a signed SSL certificate from [Let's Encrypt](https://letsencrypt.org) with 
 
 #Usage
 
+##Issuing a new certificate:
+
 ```shell
 docker run -it --rm \
 	-p 80:80 -p 443:443 \
@@ -12,6 +14,20 @@ docker run -it --rm \
 ```
 
 You'll be asked to enter your email address and agree to the terms of service next. The cert files will then be generated for you inside the `out` directory. Make sure you set your own domains instead of the "example" ones. 
+
+##Renewing an existing certificate:
+
+```shell
+docker run --rm -v $(pwd)/out:/etc/letsencrypt mujz/lets-encrypt certbot renew
+```
+
+This will renew your certificate for you if it is due for renewal.
+You can also set up a cron job so you don't have to do it manually every 3 months. To do this in Ubuntu, for example, you can run:
+
+```
+30 2 * * 1 /usr/bin/docker run --rm -v <local_lets_encrypt_dir>:/etc/letsencrypt mujz/lets-encrypt certbot renew >> /var/log/le_renew.log
+35 2 * * 1 /usr/bin/docker restart <server_container>
+```
 
 #How it works
 
