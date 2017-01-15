@@ -9,7 +9,7 @@ Get a signed SSL certificate from [Let's Encrypt](https://letsencrypt.org) with 
 docker run -it --rm \
 	-p 80:80 -p 443:443 \
 	-e DOMAINS="example.com www.example.com" \
-	-v $(pwd)/out:/etc/letsencrypt/live \
+	-v $(pwd)/out:/etc/letsencrypt \
 	mujz/lets-encrypt
 ```
 
