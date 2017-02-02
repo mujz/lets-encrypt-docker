@@ -22,12 +22,14 @@ docker run --rm -v $(pwd)/out:/etc/letsencrypt mujz/lets-encrypt certbot renew
 ```
 
 This will renew your certificate for you if it is due for renewal.
-You can also set up a cron job so you don't have to do it manually every 3 months. To do this in Ubuntu, for example, you can run:
+You can also set up a cron job so you don't have to do it manually every 3 months. To do this in Ubuntu, for example, you can run `crontab -e` and paste:
 
 ```
 30 2 * * 1 /usr/bin/docker run --rm -v <local_lets_encrypt_dir>:/etc/letsencrypt mujz/lets-encrypt certbot renew >> /var/log/le_renew.log
 35 2 * * 1 /usr/bin/docker restart <server_container>
 ```
+
+This will run the renew job every week on Monday at 2:30 in the morning.
 
 #How it works
 
