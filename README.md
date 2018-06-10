@@ -1,9 +1,9 @@
-#Let's Encrypt Certbot
+# Let's Encrypt Certbot
 Get a signed SSL certificate from [Let's Encrypt](https://letsencrypt.org) with one command.
 
-#Usage
+# Usage
 
-##Issuing a new certificate:
+## Issuing a new certificate:
 
 ```shell
 docker run -it --rm \
@@ -15,7 +15,7 @@ docker run -it --rm \
 
 You'll be asked to enter your email address and agree to the terms of service next. The cert files will then be generated for you inside the `out` directory. Make sure you set your own domains instead of the "example" ones. 
 
-##Renewing an existing certificate:
+## Renewing an existing certificate:
 
 ```shell
 docker run --rm -v $(pwd)/out:/etc/letsencrypt mujz/lets-encrypt certbot renew
