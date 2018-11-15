@@ -31,7 +31,7 @@ You can also set up a cron job so you don't have to do it manually every 3 month
 
 This will run the renew job every week on Monday at 2:30 in the morning.
 
-#How it works
+# How it works
 
 Let's start by disecting the command above:
 
